@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Social network</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+    <div th:if="${not #lists.isEmpty(accounts)}">
+        <h2>Account list</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Account Id</th>
+                <th>Login</th>
+                <th>Password</th>
+                <th>User data Id</th>
+            </tr>
+            <tr th:each="account : ${accounts}">
+                <td th:text="${account.accountId}">Account Id</td>
+                <td th:text="${account.login}">login</td>
+                <td th:text="${account.password}">password</td>
+                <td th:text="${account.userDataId}">User data Id</td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>

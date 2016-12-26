@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Social network</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header2 :: header"></th:block> /*/-->
+
+    <h2>Account Details</h2>
+    <div>
+        <form class="form-horizontal" th:object="${userdata}" th:action="@{/editdata/{id}(id=${userdata.id})}" method="post">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">First name</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static" th:text="${userdata.firstName}" th:content="${userdata.firstName}">first name</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Second name</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static" th:text="${userdata.secondName}" th:content="${userdata.secondName}">second name</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Last name</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static" th:text="${userdata.lastName}" th:content="${userdata.lastName}">last name</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Birthday</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static" th:data="${userdata.birthday}">birthday</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">City</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static" th:text="${userdata.city}">city</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Country</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static" th:text="${userdata.country}">country</p>
+                </div>
+            </div>
+            <div class="row">
+                <button type="submit" class="btn btn-default">Edit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

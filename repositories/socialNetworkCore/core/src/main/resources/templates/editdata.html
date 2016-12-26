@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Social network</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header2 :: header"></th:block> /*/-->
+
+    <h2>Please, enter your data</h2>
+    <div>
+        <form class="form-horizontal" th:object="${userdata}" th:action="@{/savedata/{id}(id=${userdata.id})}" method="post">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">First name:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{firstName}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Second name:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{secondName}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Last name:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{lastName}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Birthday:</label>
+                <div class="col-sm-10">
+                    <input type="date" class="form-control" th:field="*{birthday}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">City:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{city}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Country:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{country}"/>
+                </div>
+            </div>
+            <div class="row">
+                <button type="submit" class="btn btn-default">Save data</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

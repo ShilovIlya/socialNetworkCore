@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Social network</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header2 :: header"></th:block> /*/-->
+    
+    <div th:if="${not #lists.isEmpty(groups)}">
+        <h2>Groups</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Group Id</th>
+                <th>Group title</th>
+            </tr>
+            <tr th:each="group : ${groups}">
+                <li><a href="#" th:href="@{/group/{id}(id=${group.groupId})}">Open</a></li>
+                <td th:text="${group.groupId}">Account Id</td>
+                <td th:text="${group.title}">title</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
